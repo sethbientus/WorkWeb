@@ -1,0 +1,16 @@
+body{
+		background-color: #e6e6e6;
+}
+.data{
+	width: 690px;
+	height: auto;
+	background-color: cyan;
+	margin: auto;
+	padding: 10px;
+}
+table{
+	margin: auto;
+}
+table th{
+	background-color: #fff;
+}

@@ -1,0 +1,35 @@
+div#profile
+		{
+			width: 650px;
+			height: 585px;
+			background-color: cyan;
+			margin: auto;
+		}
+		input["text"]
+		{
+			width: 20px;
+		}
+		#form{
+			float: left;
+			max-height: 480px;
+			position: fixed;
+
+		}
+		h2
+		{
+			text-decoration: underline;
+		}
+		label
+		{
+			margin-left: 5px;
+			font-size: 20px;
+		}
+		#image{
+			max-width: 210px;
+			height: 200px;
+			background-color: #e6e6e6;
+			margin-top: 70px;
+			float: right;
+			max-height: 480px;
+			margin-right: 5px;
+		}

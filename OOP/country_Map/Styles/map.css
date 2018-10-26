@@ -1,0 +1,17 @@
+body {
+	margin: 0;
+	background-color: #BCBC;
+}
+div#map {
+	width: 800px;
+	height: 600px;
+	margin: auto;
+	background-color: cyan;
+}
+div#search {
+	background-color: white;
+	width: 850px;
+	height: 700px;
+	padding: 10px;
+	margin: auto;
+}

@@ -1,0 +1,697 @@
+body{
+	background-color: white;
+	height: 538px;
+	overflow: scroll;
+}
+div#main{
+	background-color: #e7e7e7;
+	width: 850px;
+	height: 100%;
+	margin: auto;
+	overflow: scroll;
+}
+div#header{
+	background-color: #8DB6CD;
+	width: 850px;
+	height: 70px;
+	margin: auto;
+}
+ div#header div#menu{
+ 	background-color: #8DB6CD;
+ 	width: 80px;
+ 	height: 70px;
+ }
+ div#header div#menu i{
+ 	color: white;
+ 	font-size: 30px;
+ 	margin-left: 20px;
+ 	margin-top: 20px;
+ }
+ div#header div#logo{
+ 	background-color: #8DB6CD;
+ 	width: 150px;
+ 	height: 70px;
+ 	margin-left: 80px;
+ 	margin-top: -70px;
+ }
+ div#header div#logo img{
+ 	width: 100%;
+ 	height: 99%;
+ }
+ div#header div#linq{
+ 	background-color: #8DB6CD;
+ 	width: 590px;
+ 	height: 63px;
+ 	margin-left: 232px;
+ 	margin-top: -65px;
+ }
+ div#header div#linq div#up{
+ 	background-color: white;
+ 	width: 90px;
+ 	height: 25px;
+ 	margin-left:5px;
+ }
+ div#header div#linq div#up a{
+ 	background-color: white;
+ 	width: 80px;
+ 	height: 20px;
+ 	text-decoration: none;
+ }
+ div#header div#linq div#reg{
+ 	background-color: white;
+ 	width: 90px;
+ 	height: 25px;
+ 	margin-left: 100px;
+ 	margin-top: -25px;
+ }
+  div#header div#linq div#reg a{
+ 	background-color: white;
+ 	width: 80px;
+ 	height: 20px;
+ 	text-decoration: none;
+ }
+ div#header div#linq div#return{
+ 	background-color: white;
+ 	width: 90px;
+ 	height: 25px;
+ 	margin-left: 195px;
+ 	margin-top: -25px;
+ }
+  div#header div#linq div#return a{
+ 	background-color: white;
+ 	width: 40px;
+ 	height: 20px;
+ 	text-decoration: none;
+ }
+ div#header div#linq div#all{
+ 	background-color: white;
+ 	width: 60px;
+ 	height: 25px;
+ 	margin-left: 290px;
+ 	margin-top: -25px;
+ 	padding-left: 5px;
+ }
+  div#header div#linq div#all a{
+ 	background-color: white;
+ 	width: 40px;
+ 	height: 20px;
+ 	text-decoration: none;
+ }
+ div#header div#linq div#map{
+ 	background-color: white;
+ 	width: 90px;
+ 	height: 25px;
+ 	margin-top: 10px;
+ 	margin-left: 5px; 
+ 	position: absolute;
+ }
+ div#header div#linq div#map a{
+ 	text-decoration: none;
+ 	width: 40px;
+ 	height: 20px;
+ 	background-color: white;
+ }
+ div#header div#linq div#log{
+ 	background-color: white;
+ 	width: 200px;
+ 	height: 48px;
+ 	margin-left: 365px;
+ 	margin-top: -25px;
+ }
+  div#header div#linq div#log a{
+ 	background-color: white;
+ 	width: 80px;
+ 	height: 20px;
+ 	text-decoration: none;
+ }
+   /* MUSHIKIWABO */
+div#main div#mushikiwabo{
+	width: 94%;
+	height: auto;
+	margin-left: 30px;
+	background-color: #e7e7e7;
+}
+div#main div#mushikiwabo img{
+	width: 100%;
+	height: 300px;
+	margin: auto;
+}
+
+div#main div#louise{
+	width: 94%;
+	height: auto;
+	margin-left: 30px;
+	background-color: #e7e7e7;
+}
+div#main div#louise div#text{
+	width: 100%;
+	height: auto;
+	background-color: white;
+}
+div#main div#louise div#text p{
+	color: black;
+	font-size: 25px;
+	margin-top: 0px;
+	margin-left: 20px;
+}
+div#main div#louise div#icons{
+	width: 96%;
+	height: 60px;
+	margin-left: 20px;
+	margin-top: -10px;
+	background-color: #e7e7e7;
+}
+#comment1{
+	color: #0b3566;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+
+#clock1{
+	margin-left: 60px;
+	color: #000;
+	margin-top: 10px;
+	font-size: 25px;
+}
+#Share1{
+	color: #000;
+	font-size: 20px;
+	margin-left: 300px;
+}
+/* KANIMBA */
+div#main div#kanimba{
+	width: 94%;
+	height: auto;
+	margin-left: 30px;
+	background-color: #e7e7e7;
+}
+div#main div#kanimba img{
+	width: 100%;
+	height: 300px;
+	margin: auto;
+}
+div#main div#francois{
+	width: 94%;
+	height: auto;
+	margin-left: 30px;
+	background-color: #e7e7e7;
+}
+div#main div#francois div#text p{
+	color: black;
+	font-size: 25px;
+	margin-left: 20px; 
+}
+div#main div#francois div#icons{
+	width: 96%;
+	height: 60px;
+	margin-left: 20px;
+	margin-top: -10px;
+	background-color: #e7e7e7;
+}
+#comment2{
+	color: #0b3566;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+#clock2{
+	margin-left: 60px;
+	color: #000;
+	margin-top: 10px;
+	font-size: 25px;
+}
+#Share2{
+	color: #000;
+	font-size: 20px;
+	margin-left: 300px;
+}
+ /* IMPUNZ */
+ div#main div#impunzi{
+	width: 94%;
+	height: auto;
+	margin-left: 30px;
+	background-color: #e7e7e7;
+}
+div#main div#impunzi img{
+	width: 100%;
+	height: 300px;
+	margin: auto;
+}
+div#main div#impu{
+	width: 94%;
+	height: auto;
+	margin-left: 30px;
+	background-color: #e7e7e7;
+}
+div#main div#impu div#text{
+	width: 100%;
+	height: auto;
+	background-color: white;
+}
+div#main div#impu div#text p{
+	color: black;
+	font-size: 25px;
+	margin-top: 0px;
+	margin-left: 20px;
+}
+div#main div#impu div#icons{
+	width: 96%;
+	height: 60px;
+	margin-left: 20px;
+	margin-top: -10px;
+	background-color: #e7e7e7;
+}
+#comment3{
+	color: #0b3566;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+#clock3{
+	margin-left: 60px;
+	color: #000;
+	margin-top: 10px;
+	font-size: 25px;
+}
+#Share3{
+	color: #000;
+	font-size: 20px;
+	margin-left: 300px;
+}
+     /* CONVENTION */
+#conve{
+    width: 94%;
+	height: auto;
+	margin-left: 30px;
+	background-color: #e7e7e7;
+}
+#conve img{
+    
+    height: 160px;
+    width: auto;
+    float: right; 
+}
+#conve p{
+	font-family: aerial;
+	font-size: 25px;
+	margin-left: 20px;
+	width: auto;
+	color: black;
+}
+#Share6{
+	margin-left: 300px;
+	color: #000;
+	font-size: 20px;
+}
+#comment6{
+	margin-left: -310px;
+	color: #0b3566;
+	margin-top: 10px;
+}
+#clock6{
+	margin-left: 50px;
+	color: #000;
+	font-size: 30px;
+}
+/* UGANDAN */
+#lou{
+	width: 94%;
+	height: auto;
+	margin-left: 30px;
+	background-color: #e7e7e7;
+}
+div#lou div#text{
+	background-color: #e7e7e7;
+	width: 60%;
+	height: auto;
+}
+div#lou div#text p{
+	color: black;
+	font-size: 25px;
+	font-family: aerial;
+	margin-left: 20px;
+}
+#Share9{
+	margin-left: 80px;
+	color: #000;
+	font-size: 20px;
+}
+#comment9{
+	margin-left: 20px;
+	color: #0b3566;
+	margin-top: 0px;
+}
+#clock9{
+	margin-left: 50px;
+	color: #000;
+	font-size: 30px;
+}
+     /* PANNEL */
+#pannel{
+    background-color: #e7e7e7;
+    margin: auto;
+    width: 94%;
+    height: 250px;
+    margin-top:20px;
+}
+#pannel img{
+    
+    height: 200px;
+    width: auto;
+    float: right;
+    margin: 20px; 
+}
+#pannel p{
+	font-family: aerial;
+	font-size: 25px;
+	margin-left: 20px;
+	width: auto;
+	color: black;
+}
+#Share6{
+	margin-left: 300px;
+	color: #000;
+	font-size: 20px;
+}
+#comment6{
+	margin-left: -310px;
+	color: #0b3566;
+	margin-top: 15px;
+}
+#clock6{
+	margin-left: 50px;
+	color: #000;
+	font-size: 30px;
+}
+/*SATELLITE*/
+
+div#main div#icyoga{
+	background-color: #e7e7e7;
+	width: 94%;
+	height:auto;
+	margin: auto;
+}
+div#main div#icyoga p{
+	color: black;
+	margin-top: 5px;
+	font-family: aerial;
+	font-size: 25px;
+	margin-left: 20px;
+}
+div#main div#icyoga div#you span#comment a i{
+	color: #0b3567;
+	margin-left: 320px;
+	font-size: 25px;
+}
+div#main div#icyoga div#you span#clock i{ 
+	color: #171717;
+	margin-left: 10px;
+	font-size: 25px;
+}
+div#main div#icyoga div#you span#Share a i{
+	color: #171717;
+	margin-left: 100px;
+	font-size: 20px;
+}
+/*KWAMAMAZA*/
+div#main div#kwamamaza{
+	width: 94%;
+	height: auto;
+	background-color: #e7e7e7;
+	margin: auto;
+}
+div#main div#kwamamaza div#text h3{
+	text-align: center;
+	color: black;
+	margin-top: 40px;
+}
+div#main div#kwamamaza div#kim{
+	margin-top: -10px;
+	width: 100%;
+	height: 250px;
+	background-color: #e7e7e7;
+}
+div#main div#kwamamaza div#kim img{
+	width: 100%;
+	height: 250px;
+}
+#man-u{
+    background-color: #e7e7e7;
+    margin: auto;
+    width: 98%;
+    height: 250px;
+    margin-top:20px;
+}
+#man-u img{
+    height: 200px;
+    width: 250px;
+    float: right;
+    margin: 20px;
+}
+#man-u p{
+	font-family: aerial;
+	font-size: 30px;
+	margin-left: 20px;
+	width: auto;
+}
+#Share{
+	margin-left: 300px;
+	color: #000;
+	font-size: 20px;
+}
+#comment{
+	margin-left: -310px;
+	color: #0b3566;
+	margin-top: 10px;
+}
+#clock{
+	margin-left: 50px;
+	color: #000;
+	font-size: 30px;
+}
+div#main div#inkuru-zamamaza{
+	background-color:  #0b3566;
+	height: auto;
+	width: 94%;
+	margin: auto;
+}
+div#main div#inkuru-zamamaza div#title{
+	width: 100%;
+	height: auto;
+ 	background-color: #0b3566;
+ 	padding: auto;
+}
+div#main div#inkuru-zamamaza div#title p{
+	font-family: aerial;
+	font-size: 25px;
+	color: white;
+	text-align: center;
+}
+div#main div#inkuru-zamamaza div#amavuta{
+	width: 100%;
+	height: 200px;
+	margin: auto;
+}
+div#main div#inkuru-zamamaza div#amavuta div#photo{
+	width: 45%;
+	height: 100%;
+	margin-left: 5px;
+}
+div#main div#inkuru-zamamaza div#amavuta div#photo img{
+	width: 100%;
+	height: 100%;
+}
+div#main div#inkuru-zamamaza div#amavuta div#text{
+	width: 52%;
+	height: 100%;
+	margin-left: 360px;
+	margin-top: -220px;
+}
+div#main div#inkuru-zamamaza div#amavuta div#text p{
+	font-family: aerial;
+	font-size: 25px;
+	margin-left: 5px;
+	color: white;
+}
+div#main div#inkuru-zamamaza div#kcb{
+	width: 100%;
+	height: 200px;
+	margin: auto;
+	margin-top: 30px;
+}
+div#main div#inkuru-zamamaza div#kcb div#photo{
+	width: 45%;
+	height: 100%;
+	margin-left: 5px;
+}
+div#main div#inkuru-zamamaza div#kcb div#photo img{
+	width: 100%;
+	height: 100%;
+}
+div#main div#inkuru-zamamaza div#kcb div#text{
+	width: 52%;
+	height: 99%;
+	margin-left: 360px;
+	margin-top: -232px;
+}
+div#main div#inkuru-zamamaza div#kcb div#text p{
+	font-family: aerial;
+	font-size: 32px;
+	margin-left: 5px;
+	color: white;
+}
+div#main div#inkuru-zamamaza div#canal{
+	width: 100%;
+	height: 200px;
+	margin: auto;
+	margin-top: 20px;
+}
+div#main div#inkuru-zamamaza div#canal div#photo{
+	width: 45%;
+	height: 100%;
+	margin-left: 5px;
+}
+div#main div#inkuru-zamamaza div#canal div#photo img{
+	width: 100%;
+	height: 100%;
+}
+div#main div#inkuru-zamamaza div#canal div#text{
+	width: 52%;
+	height: 99%;
+	margin-left: 360px;
+	margin-top: -230px;
+}
+div#main div#inkuru-zamamaza div#canal div#text p{
+	font-family: aerial;
+	font-size: 32px;
+	margin-left: 5px;
+	color: white;
+}
+div#main div#inkuru-zamamaza div#rubavu{
+	width: 100%;
+	height: 200px;
+	margin: auto;
+	margin-top: 20px;
+}
+div#main div#inkuru-zamamaza div#rubavu div#photo{
+	width: 45%;
+	height: 100%;
+	margin-left: 5px;
+}
+div#main div#inkuru-zamamaza div#rubavu div#photo img{
+	width: 100%;
+	height: 100%;
+}
+div#main div#inkuru-zamamaza div#rubavu div#text{
+	width: 52%;
+	height: 99%;
+	margin-left: 360px;
+	margin-top: -231px;
+}
+div#main div#inkuru-zamamaza div#rubavu div#text p{
+	font-family: aerial;
+	font-size: 32px;
+	margin-left: 5px;
+	color: white;
+}
+div#main div#inkuru-zamamaza div#izindi {
+     width: 200px;
+     height: 40px;
+     margin-left: 40%;
+}
+div#main div#inkuru-zamamaza div#izindi p{
+	font-family: aerial;
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	border-style: solid;
+	border-radius: 10px;
+	border-left: -30px;
+}
+div#main div#amamaza {
+	background-color: #e7e7e7;
+	margin-top: 10px;
+	width: 100%;
+	height: auto;
+}
+div#main div#amamaza p{
+	color: green;
+	font-family: aerial;
+	font-size: 25px;
+	text-align: center;
+	margin-top: 5px;
+}
+div#main div#bestnews{
+	background-color: #0b3566;
+	margin-top: 10px;
+	width: 94%;
+	height: 70px;
+	margin: auto;
+}
+div#main div#bestnews div#text {
+	background-color: #0b3566;	
+	width: 42%;
+	height: 50px;
+}
+div#main div#bestnews div#text p{
+	color: white;	
+    font-family: aerial;
+    font-size: 20px;
+    text-align: center;
+    opacity: 0.2;
+    margin-left: 30px;
+}
+div#main div#bestnews div#numb {
+	background-color: #0b3566;	
+	width: 42%;
+	height: 50px;
+	margin-left: 378px;
+	margin-top: -70px;
+}
+div#main div#bestnews div#numb p{
+	color: white;
+	font-size: 30px;
+	opacity: 1;
+	margin-left: -70px;
+}
+div#main div#last{
+	background-color: #0b3566;
+	width: 94%;
+	height: 180px;
+	margin-top: 10px;
+	margin: auto;
+}
+div#main div#last div#left{
+	height: 180px;
+	width: 36%;
+	background-color: #0b3566;
+}
+div#main div#last div#center{
+	height: 180px;
+	width: 33%;
+	margin-left: 262px;
+	margin-top: -180px;
+	background-color: #0b3566;
+}
+div#main div#last div#right{
+	background-color: #0b3566;
+	height: 180px;
+	width: 36%;
+	margin-left: 508px;
+	margin-top: -180px;
+}
+
+div#main div#last div#center img{
+	height: 100%;
+	width: 100%;
+}
+div#main div#last div#right i{
+	color: white;
+	font-size: 20px;
+	margin-left: 40px;
+	margin-top: 20px;
+}
+div#main div#last div#left i{
+	color: white;
+	font-size: 20px;
+	margin-left: 15px;
+	margin-top: 20px;
+}
