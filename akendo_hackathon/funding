@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body class="main">
+<header class="navbar">	
+  <a href="akando.php">home</a>
+  <a href="account.php">account</a>
+  <a href="help.php">help</a>
+  <a href="forum.php">forum</a>
+  <a href="course.php">course</a>
+</header>
+<main class="content">
+	<div class="funding_form">
+		<div>
+			<form>
+				<input type="text" name="project_id" placeholder="project_id">
+				<input type="text" name="fname" placeholder="fname">
+				<input type="text" name="lname" placeholder="lname">
+				<input type="text" name="email" placeholder="email">
+				<input type="text" name="amount" placeholder="amount">
+				<input type="number" name="contact" placeholder="contact">
+				<input type="text" name="financial_inst" placeholder="financial_inst">
+				<input type="number" name="bank_account" placeholder="bank_account">
+			</form>
+		</div>
+	</div>
+</main>
+</body>
+</html>
+<?php
+
+?>

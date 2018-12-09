@@ -1,0 +1,103 @@
+body{
+	background-color: white;
+	font-family: 'Arial';
+}
+#bodyContent{
+    height: auto;
+}
+#project{
+    padding: 15px;
+}
+.nav-item{
+    background-color: white;
+    min-width: 130px;
+    min-height: 40px;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 12px; 
+    border-radius: 5px;
+}
+.nav-item a{
+    color: black;
+}
+.nav-item:hover{
+    background-color: white;
+    font-size: 15px;
+}
+.nav-item a:hover{
+    color: blue;
+}
+.dropdown:hover>.dropdown-menu{
+    display: block;
+    background-color:  white;
+    font-size: 12px;
+}
+.dropdown-item:hover{
+    background-color: white;
+    font-size: 15px;
+    color: blue;
+}
+ #search{
+    background-color: white;
+    color: black;
+    font-size: 12px; 
+    border-radius: 5px;
+}
+#search:hover{
+    background-color: white;
+    color: blue;
+    font-size: 15px;
+}
+hr{
+    background-color: #4b6fbd;
+    margin: 2px 1px 5px 1px;
+}
+#content{
+    height: auto;
+    width: 96%;
+    /* padding: 10px; */
+}
+.pageContent{
+	height: 200px;
+	background-color: skyblue;
+	font-size: medium;
+    padding: 10px;
+    margin: 2px 0px 2px 0px;
+}
+#rows{
+    margin: 2px 2px 2px 2px;
+}
+
+#footer{
+    background-color: white;
+    height: auto;
+}
+.footerColumn{
+    height: auto;
+    background-color: white;
+    margin-top: 2px;
+
+}
+#end{
+    height: auto;
+    background-color: white;
+    margin: 2px 2px 2px 2px;
+}
+.list-navigation a{
+    color: black;
+}
+.list-navigation ul li a:hover{
+    text-decoration: none;
+    color: blue;
+}
+#button{
+    background-color: white;
+    min-width: 130px;
+    min-height: 40px;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 12px; 
+    border-radius: 5px;
+    color: black;
+    border: none;
+}
