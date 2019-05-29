@@ -1,0 +1,39 @@
+<?php
+	require 'ConnectionHandler.php';
+	class ProfileHandler extends ConnectionHandler{
+	       private $statement;
+               public function register($firstname,$lastname,$email,$phone,$gender,$password,$country,$city,$immobilier,$batiment){
+                        $sql = "CALL register_user('$firstname','$lastname','$email','$phone','$gender','$password','$country','$city','$immobilier','$batiment')";
+                        $this->statement = $this->connection->prepare($sql);
+                        if ($this->statement->execute()) {
+                                $_SESSION['username'] = $firstname;
+                                header("Location: ../pages/profile.php");
+                        }
+                }
+                public function user_login($user_email,$user_password){
+                    $sql = "SELECT * FROM tb_tact_users WHERE email = :gmai AND pass_word = :pwd";
+                    $this->statement = $this->connection->prepare($sql);
+                    $this->statement->bindParam(':gmai',$user_email);
+                    $this->statement->bindParam(':pwd',$user_password);
+                    if ($this->statement->execute()){
+                       return $this->statement->fetch(PDO::FETCH_ASSOC);
+                    }
+                    
+                }
+                public function get_user_pfrofiles($user_id){
+                        $sql = "CALL get_user_details('$user_id')";
+                        $this->statement = $this->connection->prepare($sql);
+                        if ($this->statement->execute()) {
+                                return $this->statement->fetchall(PDO::FETCH_ASSOC);
+                        }
+                }
+                public function update_user_profile($id,$fname,$lname,$gmail,$phone,$country,$city){
+                        $sql = "CALL update_user_profile('$id','$fname','$lname','$gmail','$phone','$country','$city')";
+                        $this->statement = $this->connection->prepare($sql);
+                        if ($this->statement->execute()) {
+                                header("Location: ../pages/profile.php");
+                        }
+                }
+
+	}
+?>
