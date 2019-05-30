@@ -6,7 +6,6 @@
                         $sql = "CALL register_user('$firstname','$lastname','$email','$phone','$gender','$password','$country','$city','$image','$interest')";
                         $this->statement = $this->connection->prepare($sql);
                         if ($this->statement->execute()) {
-                                // $_SESSION['username'] = $firstname;
                                 header("Location: ../pages/profile.php");
                         }
                 }
@@ -27,8 +26,8 @@
                                 return $this->statement->fetchall(PDO::FETCH_ASSOC);
                         }
                 }
-                public function update_user_profile($id,$fname,$lname,$gmail,$phone,$country,$city){
-                        $sql = "CALL update_user_profile('$id','$fname','$lname','$gmail','$phone','$country','$city')";
+                public function update_user_profile($id,$fname,$lname,$gmail,$phone){
+                        $sql = "CALL update_user_profile('$id','$fname','$lname','$gmail','$phone')";
                         $this->statement = $this->connection->prepare($sql);
                         if ($this->statement->execute()) {
                                 header("Location: ../pages/profile.php");

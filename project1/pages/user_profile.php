@@ -34,7 +34,7 @@
 	<div class="container">
 			<div class="row">
 				<div class="col-sm-5">
-					<form  method="POST" action="../serverSide/update_profile.php" class="form-horizontal" style="margin: auto;">
+					<form  method="POST" action="../serverSide/update_profile.php" class="form-horizontal" style="margin: auto;" enctype="multipart/form-data">
 						<div class="form-group">
 							FirstName: <input type="text" class="form-control" name="fname" value="<?php echo $key['first_name'] ?>">
 						</div>
@@ -57,13 +57,14 @@
 						<div class="form-group">
 		      				City: <input type="text" class="form-control" name="city" readonly value="<?php echo $key['city_of_origin'] ?>">
 						</div>
+						<div class="form-group">
+		      				Change Your Profile Image: <input type="file" class="form-control" name="image_update" onchange="displayImage.call(this)">
+						</div>
 						<input type="submit" name="Update" value="Update" class="btn btn-success">
 					</form>
 				</div>
 				<div class="col-sm-3">
 						<img src="<?php echo $key['profile_image'] ?>" id="user_image" width="100%" height="200" alt="You don't have any picture!! Upload one...">
-						<br><br>
-						Choose Your image: <input type="file" name="pictture" onchange="displayImage.call(this)">
 				</div>
 			</div>		
 	</div>
