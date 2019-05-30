@@ -172,7 +172,7 @@
           				<h6 class="modal-title">Registration Form</h6>
         			</div>
         			<div class="modal-body">
-						<form role="form" method="POST" action="../serverSide/user_registration.php">
+						<form role="form" method="POST" action="../serverSide/user_registration.php" enctype="multipart/form-data">
 							<div class="form-group">
 								<label for="firstname">First Name:</label>
 								<input type="text" class="form-control" name="firstName" placeholder="Enter First Name" required>

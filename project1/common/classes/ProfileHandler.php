@@ -2,11 +2,11 @@
 	require 'ConnectionHandler.php';
 	class ProfileHandler extends ConnectionHandler{
 	       private $statement;
-               public function register($firstname,$lastname,$email,$phone,$gender,$password,$country,$city,$immobilier,$batiment){
-                        $sql = "CALL register_user('$firstname','$lastname','$email','$phone','$gender','$password','$country','$city','$immobilier','$batiment')";
+               public function register($firstname,$lastname,$email,$phone,$gender,$password,$country,$city,$image,$interest){
+                        $sql = "CALL register_user('$firstname','$lastname','$email','$phone','$gender','$password','$country','$city','$image','$interest')";
                         $this->statement = $this->connection->prepare($sql);
                         if ($this->statement->execute()) {
-                                $_SESSION['username'] = $firstname;
+                                // $_SESSION['username'] = $firstname;
                                 header("Location: ../pages/profile.php");
                         }
                 }
