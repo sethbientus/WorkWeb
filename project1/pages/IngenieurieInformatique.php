@@ -2,7 +2,7 @@
 <html>
 <head>
 	<h3><title>Ingenieurie_Informatique</title></h3>
-	<link rel="icon" type="images/png" href="../images/icon.png">
+	<link rel="icon" type="images/jpeg" href="../images/pagesImages/icon.png">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/gfonts.css">
 	<link href="../css/bootstrap4.css" rel="stylesheet">

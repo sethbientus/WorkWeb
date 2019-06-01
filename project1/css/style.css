@@ -1,6 +1,6 @@
 body{
 	font-family: 'Arial';
-    background-image: url("../images/bg.png");
+    background-image: url("../images/pagesImages/bg.png");
 }
 #bodyContent{
     height: auto;
@@ -9,7 +9,7 @@ body{
     padding: 15px;
 }
 .header{
-    background-image: url("../images/bg.png");
+    background-image: url("../images/pagesImages/bg.png");
 }
 .nav-item{
     min-width: 130px;

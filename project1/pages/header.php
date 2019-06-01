@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="icon" type="images/jpeg" href="../images/icon.png">
+	<link rel="icon" type="images/jpeg" href="../images/pagesImages/icon.png">
 	<link href="../css/bootstrap4.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<script src="../js/jquery.js"></script>

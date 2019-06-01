@@ -11,7 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Profile Dashboard</title>
-  <link rel="icon" type="images/png" href="../images/icon.png">
+  <link rel="icon" type="images/jpeg" href="../images/pagesImages/icon.png">
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="../css/admin.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../css/bootstrap4.css">
