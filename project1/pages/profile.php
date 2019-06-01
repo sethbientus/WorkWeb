@@ -3,6 +3,10 @@
   if (!isset($_SESSION['username']) or !isset($_SESSION['userid']) or !isset($_SESSION['image'])) {
     header("location: Home.php");
   }
+  require '../common/classes/ProfileHandler.php';
+  $user_activities = new ProfileHandler();
+  $activities = $user_activities->get_distinct_user_activities($_SESSION['userid']);
+  $interests = $user_activities->get_user_activities($_SESSION['userid']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,19 +63,36 @@
           <span>Boite de reception</span>
         </a>
       </li>
-      <li data-toggle="collapse" data-target="#products" class="nav-item dropdown">
+      <?php
+        foreach ($activities as $key) {
+          echo "<li data-toggle='collapse' data-target='#products' class='nav-item dropdown'>";
+            echo "<a class='nav-link dropdown-toggle' href='#' id='immobilier'> <i class='fas fa-igloo'></i>"." ".$key['activity_name']."</a>";
+          echo "</li>";
+        }
+      ?>
+      <!-- <li data-toggle="collapse" data-target="#products" class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="=immobilier"><i class="fas fa-igloo"></i> immobilier </a> 
-      </li>
-      <ul class="sub-menu collapse" id="products" style="height: 0px;">
+      </li> -->
+      <?php 
+        foreach ($interests as $key) {
+          if ($key['activity_name'] == "immobilier") {
+            echo "<ul class='sub-menu collapse' id='products' style='height: 0px;'>";
+              echo "<li><a class='nav-link' style='color: white;' href='#' id=".$key['interest_name'].">".$key['interest_name']."</a></li>";
+            echo "</ul>";
+           // echo $key['activity_interest'];
+          }
+        }
+      ?>
+     <!--  <ul class="sub-menu collapse" id="products" style="height: 0px;">
         <li><a class="nav-link" style="color: white;" href="#" id="terrains">Terrains et domaines</a></li>
         <li><a class="nav-link" style="color: white;" href="#" id="batiment">Batiments</a></li>
         <li><a class="nav-link" style="color: white" href="#" id="infrastructure">Infrastructure</a></li>
-      </ul>
-      <li class="nav-item">
+      </ul> -->
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-laptop"></i>
           <span>Informatique</span></a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" href="profile.php">
           <i class="fas fa-arrow-left"></i>
@@ -111,7 +132,7 @@
         <div class="modal-body">Select "Logout" below to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="../serverSide/logout.php?signout">Logout</a>
+          <a class="btn btn-danger" href="../serverSide/logout.php?signout">Logout</a>
         </div>
       </div>
     </div>

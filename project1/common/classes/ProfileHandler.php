@@ -33,6 +33,20 @@
                                 header("Location: ../pages/profile.php");
                         }
                 }
+                public function get_user_activities($id){
+                    $sql = "CALL get_user_activities('$id')";
+                    $this->statement = $this->connection->prepare($sql);
+                    if ($this->statement->execute()) {
+                         return $this->statement->fetchall(PDO::FETCH_ASSOC);
+                    }
+                }
+                public function get_distinct_user_activities($id){
+                    $sql = "CALL get_user_distinct_activity('$id')";
+                    $this->statement = $this->connection->prepare($sql);
+                    if ($this->statement->execute()) {
+                         return $this->statement->fetchall(PDO::FETCH_ASSOC);
+                    }
+                }
 
 	}
 ?>
