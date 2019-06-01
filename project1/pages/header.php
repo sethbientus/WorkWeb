@@ -47,12 +47,12 @@
 </head>
 <body>
 	<div class="container-Fluid" id="bodyContent">
-		<div class="header clearfix fixed-top mt-2 mb-2">
+		<div class="header clearfix fixed-top">
 			<div class="row sticky-top" id="menus">
-				<div class="col-lg-2" id="project">
+				<div class="col-sm-2" id="project">
 				<h3 class="text-muted text-center">Tact.com</h3>
 				</div>
-				<div class="col-lg-7 float-left" >
+				<div class="col-sm-7 float-left" >
 					<div class="container" id="menus">
 						<nav class="navbar navbar-expand-md navbar-nav-light">
 							<div class="container" id="dropdown">
@@ -78,7 +78,7 @@
 										</div>
 									</li>
 									<li class="nav-item  text-center">
-										<a href="Home.php" class="nav-link">About Us</a>
+										<a href="about_us.php" class="nav-link">About Us</a>
 									</li>
                                     <li class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login</a>
@@ -115,7 +115,7 @@
 						</nav>
 					</div>
 				</div>
-				<div class="col-lg-3" id="colum">
+				<div class="col-sm-3" id="colum">
 					<form class="form-inline my-3 my-sm-3 my-sm-3 bg">
 						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 						<button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
