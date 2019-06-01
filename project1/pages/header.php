@@ -133,7 +133,7 @@
           				<h6 class="modal-title">Sign in Form</h6>
         			</div>
         			<div class="modal-body">
-						<form role="form" method="POST" action="../phpscripts/chatlogin.php">
+						<form role="form" method="POST" action="../serverSide/chat_login.php">
 							 <div class="form-group">
                                  <label class="sr-only" for="email">Email address</label>
                                  <input type="email" class="form-control" name="email" placeholder="Email address" required>
