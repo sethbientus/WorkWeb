@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<h3><title>Immobilier</title></h3>
+	<h3><title>Ingenieurie_Informatioque</title></h3>
 	<link rel="icon" type="images/jpeg" href="../images/pagesImages/icon.png">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/gfonts.css">
@@ -14,7 +14,7 @@
 			e = e.target || e.srcElement;
 			// if (e.id == "batiment") {
 				$("#"+e.id+"yu").fadeIn();
-			}
+			// }
 			// else if (e.id == "infrastructure") {
 			// 	$("#batimentyu").fadeOut();
 			// 	$("#infrastructureyu").fadeIn();
@@ -24,7 +24,7 @@
 			// 	$("#infrastructureyu").fadeOut();
 			// 	$("#terrain_domainyu").fadeIn();
 			// }
-		// }
+		}
 	</script>
 </head>
 		<?php
@@ -39,7 +39,7 @@
 			<div class="row" id="rows">
 				<div class="col-lg-12">
 					<div class="" style="height: 400px">
-						<img src="../images/pagesImages/img2.jpg" style="width: 100%;height: 100%">
+						<img src="../images/pagesImages/img6.jpg" style="width: 100%;height: 100%">
 					</div>
 				</div>
 				
@@ -49,7 +49,7 @@
 				<div class="col-sm-5">
 					<div class="pageContent mt-4">
 						<div class=" container ml-0">
-							<h5 class="d-inline p-2 text-primary"><u>Activity: <?php echo $key['activity_name']; ?></u></h5>
+							<h5 class="d-inline p-2 text-black"><u>Activity: <?php echo $key['activity_name']; ?></u></h5>
 						</div>
 						<div class="container ml-2 mt-4">
 							<p class="d-inline p-2 bg-primary text-white"><u>Description:</u></p> <?php echo $key['activity_description']; ?>
@@ -69,7 +69,7 @@
 					
 				</div>
 				<div class="col-sm-5 fix-right">
-					<div class="pageContent mt-4">
+					<div class="pageContent">
 							<?php
 								foreach ($datas as $key) {
 									echo "<div id=".$key['interest_name']."yu"." style='display:none'  class='container ml-0 mt-5'>";

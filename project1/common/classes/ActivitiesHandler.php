@@ -32,5 +32,11 @@
 			$this->statement->execute();
 			return $this->statement->fetchall(PDO::FETCH_ASSOC);
 		}
+		public function immobilier_page_data($code){
+			$sql = "CALL data_immobilier_page('$code')";
+			$this->statement = $this->connection->prepare($sql);
+			$this->statement->execute();
+			return $this->statement->fetchall(PDO::FETCH_ASSOC);
+		}
 	}
 ?>

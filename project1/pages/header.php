@@ -63,11 +63,11 @@
 									<li class="nav-item dropdown">
 										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Activities</a>
 										<div class="dropdown-menu">
-											<a href="Immobilier.php" class="dropdown-item">Immobilier</a>
-											<a href="IngenieurieJuridique.php" class="dropdown-item">Ingenieurie Juridique</a>
-											<a href="IngenieurieFinanciere.php" class="dropdown-item">Ingenieurie Financiere</a>
-											<a href="Intermediation.php" class="dropdown-item">Intermediation</a>
-											<a href="IngenieurieInformatique.php" class="dropdown-item">Ingenieurie Informatique</a>
+											<?php
+												foreach ($datas as $key) {
+													echo "<a href=".$key['activity_name'].".php?act_code=".$key['activity_code'].""." class='dropdown-item'>".$key['activity_name']."</a>";
+												}
+											?>
 										</div>
 									</li>
 									<li class="nav-item dropdown">
