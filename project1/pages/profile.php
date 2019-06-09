@@ -23,7 +23,7 @@
 </head>
 <body id="page-top">
   <nav class="navbar navbar-expand bg-dark navbar-dark fixed-top">
-    <a class="navbar-brand mr-1" href="index.html">tact.com</a>
+    <a class="navbar-brand mr-1" href="about_us.php">tact.com</a>
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
@@ -70,29 +70,15 @@
           echo "</li>";
         }
       ?>
-      <!-- <li data-toggle="collapse" data-target="#products" class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="=immobilier"><i class="fas fa-igloo"></i> immobilier </a> 
-      </li> -->
       <?php 
         foreach ($interests as $key) {
           if ($key['activity_name'] == "immobilier") {
             echo "<ul class='sub-menu collapse' id='products' style='height: 0px;'>";
               echo "<li><a class='nav-link' style='color: white;' href='#' id=".$key['interest_name'].">".$key['interest_name']."</a></li>";
             echo "</ul>";
-           // echo $key['activity_interest'];
           }
         }
       ?>
-     <!--  <ul class="sub-menu collapse" id="products" style="height: 0px;">
-        <li><a class="nav-link" style="color: white;" href="#" id="terrains">Terrains et domaines</a></li>
-        <li><a class="nav-link" style="color: white;" href="#" id="batiment">Batiments</a></li>
-        <li><a class="nav-link" style="color: white" href="#" id="infrastructure">Infrastructure</a></li>
-      </ul> -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-laptop"></i>
-          <span>Informatique</span></a>
-      </li> -->
       <li class="nav-item">
         <a class="nav-link" href="profile.php">
           <i class="fas fa-arrow-left"></i>

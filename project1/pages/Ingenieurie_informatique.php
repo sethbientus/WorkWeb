@@ -30,7 +30,7 @@
 		<?php
 			require"header.php";
 			$activities = new ActivitiesHandler();
-			$datas = $activities->immobilier_page_data($_GET['act_code']);
+			$datas = $activities->page_data($_GET['act_code']);
 			foreach ($datas as $key) {
 		
 			}

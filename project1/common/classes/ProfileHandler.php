@@ -47,6 +47,7 @@
                          return $this->statement->fetchall(PDO::FETCH_ASSOC);
                     }
                 }
+                
 
-	}
+	       }
 ?>

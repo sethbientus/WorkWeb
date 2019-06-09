@@ -1,11 +1,11 @@
 <?php
-$table= "infrastructure";
-require '../common/classes/DatabaseHandler.php';
-if(isset($_POST['name']))
-{
+session_start();
+$interest = "infrastructure";
+$userid = $_SESSION['userid'];
+require '../common/classes/ActivitiesHandler.php';
+if(isset($_POST['name'])){
     $pass = $_POST['name'];
-
-$data = new Operations();
-$row = $data->SelectTerrain($table,$pass);
-echo json_encode($row);
+	$data = new ActivitiesHandler();
+	$row = $data->get_search_details($userid,$interest,$pass);
+	echo json_encode($row);
 }

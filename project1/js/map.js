@@ -1,42 +1,20 @@
 var map;
 var feature;
-var loca1;
 function load_map() {
     map = new L.Map('map');
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
     map.attributionControl.setPrefix('');
-    map.setView(new L.LatLng(36.925, -4.2056),5);
+    map.setView(new L.LatLng(36.925, -4.2056),12);
 }
 function Search() {
-    var address = document.getElementById("country");
-    $.getJSON('http://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + address.value, function(data) {
-        var items =[];
-        $.each(data, function(key, val) {
-            bound = val.boundingbox;
-            var loc1 = new L.LatLng(bound[0], bound[2]);
-			var loc2 = new L.LatLng( bound[1],  bound[3]);
-			var bounds = new L.LatLngBounds(loc1, loc2);
-			var loc3 = new L.LatLng(bound[0], bound[3]);
-			var loc4 = new L.LatLng( bound[1],  bound[2]);
-            feature = L.polyline( [loc1, loc4, loc2, loc3, loc1], {color: 'none'}).addTo(map);
-			map.fitBounds(bounds);
-
-        });
+    var latitude = document.getElementById("lati").value;
+    var longitude = document.getElementById("longi").value;
+    var nzoom = 12;
+    var myMarker = L.marker([latitude, longitude], {title: "Coordinates", alt: "Coordinates", draggable: false}).addTo(map).on('dragend', function() {
+     var czoom = map.getZoom();
+     if(czoom < 18) { nzoom = czoom + 2; }
+     if(nzoom > 18) { nzoom = 18; }
+     if(czoom != 18) { map.setView(new L.LatLng(latitude,longitude), nzoom); } else { map.setView([latitude,longitude]); }
+     myMarker.bindPopup("Lat " + latitude + "<br />Lon " + longitude).openPopup();
     });
 }
-// function LoadMap(){
-
-//     var addresse = "rwanda";
-//     map = new L.Map('map');L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{}).addTo(map);
-//     map.attributionControl.setPrefix('');
-//     $.getJSON('http://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + addresse, function(data){
-//         var item = [];
-//         $.each(data,function(key, val){
-//             bounde = val.boundingbox;
-//             var loca1 =new L.LatLng(bounde[0],bounde[3]);
-//             map.setView(new L.LatLng(bounde[0],bounde[3],5));
-//             console.log(new L.LatLng(bounde[0],bounde[3]));
-//         });
-//     });
-
-// }

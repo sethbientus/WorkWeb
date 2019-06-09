@@ -1,9 +1,11 @@
 <?php
-$table= "batiments";
-require '../common/classes/DatabaseHandler.php';
+session_start();
+$interest = "batiment";
+$userid = $_SESSION['userid'];
+require '../common/classes/ActivitiesHandler.php';
 if(isset($_POST['name'])){
     $pass = $_POST['name'];
-	$data = new Operations();
-	$row = $data->SelectTerrain($table,$pass);
+	$data = new ActivitiesHandler();
+	$row = $data->get_search_details($userid,$interest,$pass);
 	echo json_encode($row);
 }

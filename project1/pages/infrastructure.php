@@ -2,12 +2,12 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap4.css">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<script src="../js/jquery.js"></script>
-	<link rel="stylesheet" href="../css/leaflet.css"/>
-	<script src="../js/leaflet.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
 	<script src="../js/map.js"></script>
+	<script src="../js/leaflet.js"></script>
 </head>
 <body>
 	<div class="container-fluid ml-0" id="content">
@@ -39,10 +39,10 @@
 		</div>
 		<div class="row" id="rows">
 			<div class="col-lg-12 col-sm-offset-1">
-				<div id="description" style="height:200px">
-						
-
+				<div id="description" style="height:200px;">
 				</div>
+				<input type="text" name="lati" id="lati">
+				<input type="text" name="longi" id="longi">
 			</div>
 		</div>
 	</div>
@@ -59,10 +59,14 @@
 			function(data, status)
 			{
 				var values = JSON.parse(data);
-				var details = values.description;
-				var picture = values.file;
+				var details = values.interest_description;
+				var picture = values.interest_image;
+				var latit = values.latitude;
+				var longitu = values.longitude;
 				$('#description').html(details);
-				 $('#image').html('<img src="' + picture  + '" style=width:100%;height:500px;." alt="There is not a Infrastructure in This city"/>');
+				document.getElementById("lati").value = latit;
+				document.getElementById("longi").value = longitu;
+				 $('#image').html('<img src="' + picture  + '" style=width:100%;height:500px;." alt="There is not a infrastructure in This city"/>');
 			}
 		);
 

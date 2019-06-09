@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap4.css">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<script src="../js/jquery.js"></script>
-	<link rel="stylesheet" href="../css/leaflet.css"/>
-	<script src="../js/leaflet.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
 	<script src="../js/map.js"></script>
+	<script src="../js/leaflet.js"></script>
 </head>
 <body>
 	<div class="container-fluid ml-0" id="content">
 		<div class="row" id="rows">
-			<div class="col-lg-8 pr-0" >
+			<div class="col-lg-8" >
 				<div class="pageContent" style="height: 550px;overflow: hidden">
 					<form method="post" class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0">
 						<iframe style="display:none" onload="load_map()" src="../js/leaflet.js"></iframe>
@@ -32,18 +31,18 @@
 				</div>
 			</div>
 			<div class="col-lg-4">
-				<p><center>Terrain image</center></p>
+				<p><center>terrain Image</center></p>
 				<div  id="image" style="height: 500px">
 					
 				</div>
 			</div>
 		</div>
 		<div class="row" id="rows">
-			<div class="col-lg-6 col-sm-offset-5">
+			<div class="col-lg-12 col-sm-offset-1">
 				<div id="description" style="height:200px;">
-						
-
 				</div>
+				<input type="text" name="lati" id="lati">
+				<input type="text" name="longi" id="longi">
 			</div>
 		</div>
 	</div>
@@ -60,10 +59,14 @@
 			function(data, status)
 			{
 				var values = JSON.parse(data);
-				var details = values.description;
-				var picture = values.file;
+				var details = values.interest_description;
+				var picture = values.interest_image;
+				var latit = values.latitude;
+				var longitu = values.longitude;
 				$('#description').html(details);
-				 $('#image').html('<img src="' + picture  + '" style=width:100%;height:500px;." alt="There is not a Terrain in This city"/>');
+				document.getElementById("lati").value = latit;
+				document.getElementById("longi").value = longitu;
+				$('#image').html('<img src="' + picture  + '" style=width:100%;height:500px;." alt="There is not a terrain in This city"/>');
 			}
 		);
 
