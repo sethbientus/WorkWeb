@@ -12,19 +12,8 @@
 		function shows(e) {
 			e = e || window.event;
 			e = e.target || e.srcElement;
-			// if (e.id == "batiment") {
 				$("#"+e.id+"yu").fadeIn();
 			}
-			// else if (e.id == "infrastructure") {
-			// 	$("#batimentyu").fadeOut();
-			// 	$("#infrastructureyu").fadeIn();
-			// }
-			// else if (e.id == "terrain_domain") {
-			// 	$("#batimentyu").fadeOut();
-			// 	$("#infrastructureyu").fadeOut();
-			// 	$("#terrain_domainyu").fadeIn();
-			// }
-		// }
 	</script>
 </head>
 		<?php

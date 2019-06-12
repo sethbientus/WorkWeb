@@ -11,6 +11,8 @@
 </head>
 		<?php
 			require"header.php";
+			$datas = $activities->get_home_page();
+			foreach ($datas as $key) {}
 		?>
 		<div class="container-fluid" id="content">
 			<div class="row" id="rows">
@@ -22,25 +24,17 @@
 				
 			</div>
 			
-			<div class="row" id="rows">
+			<div class="row mt-5" id="rows">
 				<div class="col-lg-5">
 					<div class="pageContent">
-						<p>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<p><?php echo $key['first_column']; ?></p>
 					</div>
 				</div>
-				<div class="col-lg-7">
+				<div class="col-lg-2">
+				</div>
+				<div class="col-lg-5">
 					<div class="pageContent">
-						<p>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<p><?php echo $key['second_column']; ?></p>
 					</div>
 				</div>
 			</div>

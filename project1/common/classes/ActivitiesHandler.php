@@ -58,7 +58,19 @@
         	$sql = "CALL get_more_details('$id','$interest','$pass')";
         	$this->statement = $this->connection->prepare($sql);
         	$this->statement->execute();
-        	return $this->statement->fetch(PDO::FETCH_ASSOC) ;;
+        	return $this->statement->fetch(PDO::FETCH_ASSOC) ;
+        }
+        public function get_About(){
+        	$sql = "CALL get_about_us()";
+        	$this->statement = $this->connection->prepare($sql);
+        	$this->statement->execute();
+        	return $this->statement->fetchall(PDO::FETCH_ASSOC) ;
+        }
+        public function get_home_page(){
+        	$sql = "CALL get_home_page_data()";
+        	$this->statement = $this->connection->prepare($sql);
+        	$this->statement->execute();
+        	return $this->statement->fetchall(PDO::FETCH_ASSOC) ;
         }
 	}
 ?>
