@@ -12,7 +12,13 @@
 		function shows(e) {
 			e = e || window.event;
 			e = e.target || e.srcElement;
-				$("#"+e.id+"yu").fadeIn();
+			$("#"+e.id+"yu").fadeIn();
+			// if (e.id+"yu" = "batiment") {
+			// 	$("#"+e.id+"yu").fadeIn();
+			// }
+			// else{
+			// 	$("#"+e.id+"yu").fadeOut();
+			// }
 			}
 	</script>
 </head>

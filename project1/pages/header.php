@@ -24,14 +24,6 @@
 			var displayCity = ville.options[ville.selectedIndex].text;
 			document.getElementById('city').value = displayCity;
 		}
-		function showInterest(checked){
-			if (checked == true) {
-				$("#interestDiv").fadeIn();
-			}
-			else {
-				$("#interestDiv").fadeOut();
-			}
-		}
 		function displayImage(){
 		if (this.files && this.files[0]) {
 			var image_to_upload = new FileReader();
@@ -43,6 +35,36 @@
 			image_to_upload.readAsDataURL(this.files[0]);
 		}
 	}
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('input[type="checkbox"]').change(function(){
+				var checkboxname = $(this).val();
+				if ($(".entry").hasClass(checkboxname)) {
+					if ($(this).is(":checked")) {
+						$(".entry." + checkboxname).show();
+					}
+					else{
+						$(".entry." + checkboxname).hide();
+					}
+				}
+			});
+
+			$("input:checkbox").on('click',function(){
+				var $box = $(this);
+				var checkboxname = $(this).val();
+				if ($box.is(":checked")) {
+					var group = "input:checkbox[name='" + $box.attr("name") + "']";
+					$(group).prop("checked",false);
+					$box.prop("checked",true);
+					$(".entry." + checkboxname).show();
+				}
+				else{
+					$box.prop("checked",false);
+					$(".entry." + checkboxname).hide();
+				}
+			});
+		});
 	</script>
 </head>
 <body>
@@ -215,23 +237,23 @@
 								<input type="file" class="form-control" name="image_upload" onchange="displayImage.call(this)">
 							</div>
 							<div class="checkbox">
-								<label for="activity"><u>Choose Your Favorite Activity</u></label><br>
+								<label for="activity"><u>Available Activities</u></label><br>
 								<?php
 									foreach ($datas as $key) {
-										echo"<input type='checkbox' onchange="."showInterest(this.checked)"." name=".$key['activity_name']." value=".$key['activity_code']." >"." ".$key['activity_name'];
+										echo"<input type='checkbox' class='radio' name='chechboxes[1][]' value=".$key['activity_code'].">"." ".$key['activity_name'];
 										echo "<br>";
 									}
 								?>
 							</div>
-							<div class="checkbox" id="interestDiv" style="display: none;">
-								<label for="interest"><u>Choose Your Favourite Interest</u></label><br></b>
+							<label  for="interest"><u> Available Interest For Selected Activity</u></label><br>
 								<?php
-									foreach ($interest as $key ) {
-										echo "<input type='checkbox' name=".$key['interest_name']." value=".$key['interest_name'].">"." ".$key['interest_name'];
-										echo "<br>";
+									foreach ($interest as $keys ) {
+										echo "<div class='entry ".$keys['activity_code']."' style='display: none'> ";
+											echo "<input type='checkbox' class='radio' name='chechboxes[2][]' value=".$keys['interest_name'].">"." ".$keys['interest_name'];
+											echo "<br>";
+										echo "</div>";
 									}
 								?>
-							</div>
 							<br>
 							<button type="submit" name="submit" class="btn btn-default bg-success">Register</button>
 						</form>
