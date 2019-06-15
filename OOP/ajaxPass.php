@@ -21,7 +21,7 @@
             	<h3><center>Enter Your Search Key</center></h3>
                 <table border="2" style="border-collapse: collapse; margin: auto;">
                 	<tr>
-                		<th colspan="10"><input type="text" size="20" ng-model="key" placeholder="Type And Search Here...." style="background-color: cyan">&nbsp&nbsp<button ng-click="Search()">Search</button></th>
+                		<th colspan="10"><input type="text" size="20" ng-model="key" ng-keydown="Search()" placeholder="Type And Search Here...." style="background-color: cyan"></th>
                 	</tr>
                 	<tr style="background-color: cyan">
                 		<th>User ID</th>
