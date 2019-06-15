@@ -249,7 +249,7 @@
 								<?php
 									foreach ($interest as $keys ) {
 										echo "<div class='entry ".$keys['activity_code']."' style='display: none'> ";
-											echo "<input type='checkbox' class='radio' name='chechboxes[2][]' value=".$keys['interest_name'].">"." ".$keys['interest_name'];
+											echo "<input type='checkbox'  name='chechboxes_list[]' value=".$keys['interest_name'].">"." ".$keys['interest_name'];
 											echo "<br>";
 										echo "</div>";
 									}

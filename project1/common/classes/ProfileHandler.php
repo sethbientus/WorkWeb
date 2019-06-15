@@ -26,8 +26,8 @@
                                 return $this->statement->fetchall(PDO::FETCH_ASSOC);
                         }
                 }
-                public function update_user_profile($id,$fname,$lname,$gmail,$phone){
-                        $sql = "CALL update_user_profile('$id','$fname','$lname','$gmail','$phone')";
+                public function update_user_profile($id,$fname,$lname,$gmail,$phone,$interest){
+                        $sql = "CALL update_user_profile('$id','$fname','$lname','$gmail','$phone','$interest')";
                         $this->statement = $this->connection->prepare($sql);
                         if ($this->statement->execute()) {
                                 header("Location: ../pages/profile.php");
@@ -47,7 +47,24 @@
                          return $this->statement->fetchall(PDO::FETCH_ASSOC);
                     }
                 }
-                
+                public function get_Activity(){
+                    $sql = "CALL get_all_activities()";
+                    $this->statement = $this->connection->prepare($sql);
+                    $this->statement->execute();
+                    return $this->statement->fetchall(PDO::FETCH_ASSOC);
+                }
+                public function get_interest(){
+                    $sql = "CALL get_all_interests()";
+                    $this->statement = $this->connection->prepare($sql);
+                    $this->statement->execute();
+                    return $this->statement->fetchall(PDO::FETCH_ASSOC);
+                }
+                public function get_unsubscribed_interest($ids){
+                    $sql = "CALL get_user_unsubscribed('$ids')";
+                    $this->statement = $this->connection->prepare($sql);
+                    $this->statement->execute();
+                    return $this->statement->fetchall(PDO::FETCH_ASSOC);
+                }
+            }
 
-	       }
 ?>

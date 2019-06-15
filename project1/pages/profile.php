@@ -65,18 +65,16 @@
       </li>
       <?php
         foreach ($activities as $key) {
-          echo "<li data-toggle='collapse' data-target='#products' class='nav-item dropdown'>";
-            echo "<a class='nav-link dropdown-toggle' href='#' id='immobilier'> <i class='fas fa-igloo'></i>"." ".$key['activity_name']."</a>";
+          echo "<li data-toggle='collapse' data-target='#".$key['activity_name']."' class='nav-item dropdown'>";
+            echo "<a class='nav-link dropdown-toggle' href='#' id='".$key['activity_name']."'> <i class='fas fa-igloo'></i>"." ".$key['activity_name']."</a>";
           echo "</li>";
         }
       ?>
       <?php 
         foreach ($interests as $key) {
-          if ($key['activity_name'] == "immobilier") {
-            echo "<ul class='sub-menu collapse' id='products' style='height: 0px;'>";
+            echo "<ul class='sub-menu collapse' id='".$key['activity_name']."' style='height: 0px;'>";
               echo "<li><a class='nav-link' style='color: white;' href='#' id=".$key['interest_name'].">".$key['interest_name']."</a></li>";
             echo "</ul>";
-          }
         }
       ?>
       <li class="nav-item">
