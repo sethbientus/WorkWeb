@@ -13,15 +13,16 @@
 <html>
 <head>
     <title>Interest Update</title>
+    <link rel="stylesheet" type="text/css" href="../customized-plugins/css/bootstrap4.css">
 </head>
-<body>
-    <div class="container">
+<body style="background-image: url(../../images/bg.png);">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-lg-offset-3 col-lg-6" style="margin: auto;">
-                <form method="POST" action="#" enctype="multipart/form-data">
+                <form method="POST" action="../customized-plugins/serverSide/update_activity.php" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Activity_Code</label>
-                        <input type="text" name="code" class="form-control" value="<?php echo $key['activity_code'] ?>">
+                        <input type="text" name="code" readonly class="form-control" value="<?php echo $key['activity_code'] ?>">
                     </div>
                     <div class="form-group">
                         <label>Activity_Name</label>
@@ -31,7 +32,7 @@
                         <label>Description</label>
                         <input name="description" class="form-control" value="<?php echo $key['activity_description'] ?>"></input>
                     </div>
-                    <input type="submit" name="submit" value="Submit" class="btn btn-success">
+                    <input type="submit" name="update" value="update" class="btn btn-success">
                 </form>
             </div>
         </div>

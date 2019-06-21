@@ -1,5 +1,4 @@
 <?php
-	// session_start();S
 	require 'ConnectionHandler.php';
 	class ActivitiesHandler extends ConnectionHandler
 	{
@@ -39,6 +38,13 @@
 			$this->statement->execute();
 			return $this->statement->fetchall(PDO::FETCH_ASSOC);
 		}
+		public function get_one_interest($name)
+		{
+			$sql = "CALL get_single_interest('$name')";
+			$this->statement = $this->connection->prepare($sql);
+			$this->statement->execute();
+			return $this->statement->fetchall(PDO::FETCH_ASSOC);
+		}
 		public function get_interest_with_activity(){
 			$sql = "CALL get_interest_with_activity()";
 			$this->statement = $this->connection->prepare($sql);
@@ -58,6 +64,62 @@
 			if ($this->statement->execute()) {
 				header("Location: http://localhost/wordpress/wp-admin/admin.php?page=View+interest");
 			}
+		}
+		public function get_users(){
+            $sql = "CALL get_tact_users()";
+            $this->statement = $this->connection->prepare($sql);
+            $this->statement->execute();
+            return $this->statement->fetchall(PDO::FETCH_ASSOC);
+        }
+        public function insert_update($userid,$activity,$city,$latitude,$longitude,$interest,$target_path){
+            $sql = "CALL insert_activity_location('$userid','$activity','$longitude','$latitude','$city','$interest')";
+            $this->statement = $this->connection->prepare($sql);
+            $this->statement->execute();
+            $sql1 = "CALL update_user_interest('$userid','$interest','$target_path','$city')";
+            $this->statement = $this->connection->prepare($sql1);
+            if ($this->statement->execute()) {
+            	header("Location: http://localhost/wordpress/wp-admin/admin.php?page=Add+New+location");
+            }
+		}
+        public function update_activtity($code,$name,$descrip){
+        	$sql = "CALL update_activity('$code','$name','$descrip')";
+        	$this->statement = $this->connection->prepare($sql);
+        	if ($this->statement->execute()) {
+				header("Location: http://localhost/wordpress/wp-admin/admin.php?page=View+activities");
+			}
+        }
+        public function update_interest($name,$code,$descrip){
+        	$sql = "CALL update_interest('$name','$code','$descrip')";
+        	$this->statement = $this->connection->prepare($sql);
+        	if ($this->statement->execute()) {
+				header("Location: http://localhost/wordpress/wp-admin/admin.php?page=View+interest");
+			}
+        }
+        public function insert_About($mission,$informa){
+        	$sql = "CALL about_us('$mission','$informa')";
+        	$this->statement = $this->connection->prepare($sql);
+        	if ($this->statement->execute()) {
+				header("Location: http://localhost/wordpress/wp-admin/");
+			}
+        }
+        public function insert_home_page($left,$right){
+        	$sql = "CALL home_page('$left','$right')";
+        	$this->statement = $this->connection->prepare($sql);
+        	if ($this->statement->execute()) {
+				header("Location: http://localhost/wordpress/wp-admin/");
+			}
+        }
+        public function search($key){
+			$sql = "SELECT * FROM tb_tact_users WHERE first_name LIKE '$key' OR surname LIKE '$key%' OR email LIKE '%$key%'";
+			$this->statement = $this->connection->prepare($sql);
+			$this->statement->execute();
+			return $this->statement->fetchall(PDO::FETCH_ASSOC);
+		}
+		public function get_immo_interest(){
+			$sql = "CALL get_immobilier_interest()";
+			$this->statement = $this->connection->prepare($sql);
+			$this->statement->execute();
+			return $this->statement->fetchall(PDO::FETCH_ASSOC);
 		}
 	}
 ?>

@@ -33,7 +33,7 @@
 						<td>' . $key["activity_name"] . '</td>
 						<td>' . $key["interest_description"] . '</td>
 						<td>
-							<a href="#?interest=' . $key["interest_name"] . '" >
+							<a href="../wp-content/plugins/interest_plugin/interest_update.php?interest=' . $key["interest_name"] . '" >
 								<button class="bg-success">Edit</button>
 							</a>
 							<a onclick="return redirect()" href="http://localhost/wordpress/wp-admin/?interest=' . $key["interest_name"] . '">
