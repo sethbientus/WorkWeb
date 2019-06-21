@@ -6,7 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<script src="../js/jquery.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
-	<script src="../js/map.js"></script>
 	<script src="../js/leaflet.js"></script>
 </head>
 <body>
@@ -16,14 +15,12 @@
 				<div class="pageContent" style="height: 550px;overflow: hidden">
 					<form method="post" class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0">
 						<iframe style="display:none" onload="load_map()" src="../js/leaflet.js"></iframe>
-						<div class="input-group">
-        					<input type="text" class="form-control" id="country" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-        					<div class="input-group-append">
-          						<button class="btn btn-primary" type="button" onclick="Search();">
-            						<i class="fas fa-search"></i> 
-          						</button>
-        					</div>
-      					</div>
+						<div>
+        					<span><input type="text" class="form-control" id="country" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2"></span>
+        					<span>
+        						<button type="button" class="btn btn-primary" id="btnn" return false;><i class="fas fa-search"></i> </button>
+        					</span>
+        				</div>
 					</form>
 					<div class="row mt-2">
 						<div id="map" class="col-lg-12" style="height: 500px; overflow: hidden"></div>
@@ -31,7 +28,7 @@
 				</div>
 			</div>
 			<div class="col-lg-4">
-				<p><center>Infrastructure Image</center></p>
+				<p><center>infrastructure Image</center></p>
 				<div  id="image" style="height: 500px">
 					
 				</div>
@@ -41,8 +38,8 @@
 			<div class="col-lg-12 col-sm-offset-1">
 				<div id="description" style="height:200px;">
 				</div>
-				<input type="text" name="lati" id="lati">
-				<input type="text" name="longi" id="longi">
+				<input type="hidden" name="lati" id="lati">
+				<input type="hidden" name="longi" id="longi">
 			</div>
 		</div>
 	</div>
@@ -66,11 +63,12 @@
 				$('#description').html(details);
 				document.getElementById("lati").value = latit;
 				document.getElementById("longi").value = longitu;
-				 $('#image').html('<img src="' + picture  + '" style=width:100%;height:500px;." alt="There is not a infrastructure in This city"/>');
+				$('#image').html('<img src="' + picture  + '" style=width:100%;height:500px;." alt="There is not a infrastructure in This city"/>');
 			}
 		);
 
 		});
 	});
 </script>
+<script src="../js/map.js"></script>
 </html>

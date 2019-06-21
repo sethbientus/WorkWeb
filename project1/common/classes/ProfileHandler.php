@@ -19,7 +19,7 @@
                     }
                     
                 }
-                public function get_user_pfrofiles($user_id){
+                public function get_user_profiles($user_id){
                         $sql = "CALL get_user_details('$user_id')";
                         $this->statement = $this->connection->prepare($sql);
                         if ($this->statement->execute()) {

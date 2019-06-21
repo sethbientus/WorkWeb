@@ -3,10 +3,10 @@
     class Operations extends ConnectionHandler{
         private $statement;
         private $ready  = 1;
-        private $database  = "dbtact";      
-        private $chatTable = 'messages';
-        private $chatUsersTable = 'users';
-        private $chatLoginDetailsTable = 'chat_login_details';
+        private $database  = "db_tact";      
+        private $chatTable = 'tb_messages';
+        private $chatUsersTable = 'tb_tact_users';
+        // private $chatLoginDetailsTable = 'chat_login_details';
         
         private function getData($sqlQuery) {
         $this->statement = $this->connection->prepare($sqlQuery);
@@ -26,18 +26,18 @@
     }
     public function loginUsers($username, $password){
         $sqlQuery = "
-            SELECT userID, userName 
+            SELECT user_id, email 
             FROM ".$this->chatUsersTable." 
-            WHERE userName='".$username."' AND passwrd='".$password."'";        
+            WHERE email='".$username."' AND pass_word='".$password."'";        
         return  $this->getData($sqlQuery);
     }       
     public function chatUsers($userid){
         if ($userid == "@admin") {
-            $sqlQuery = " SELECT * FROM ".$this->chatUsersTable." WHERE userName != '$userid' AND userName != '@admin'";
+            $sqlQuery = " SELECT * FROM ".$this->chatUsersTable." WHERE email != '$userid' AND email != '@admin'";
             return  $this->getData($sqlQuery);
         }
         if ($userid != "@admin") {
-            $sqlQuery = " SELECT * FROM ".$this->chatUsersTable." WHERE userName = '@admin'";
+            $sqlQuery = " SELECT * FROM ".$this->chatUsersTable." WHERE email = '@admin'";
             return  $this->getData($sqlQuery);
         }
         
@@ -45,33 +45,33 @@
     public function getUserDetails($userid){
         $sqlQuery = "
             SELECT * FROM ".$this->chatUsersTable." 
-            WHERE userID = '$userid'";
+            WHERE user_id = '$userid'";
         return  $this->getData($sqlQuery);
     }
     public function getUserAvatar($userid){
         $sqlQuery = "
-            SELECT profileImage 
+            SELECT profile_image 
             FROM ".$this->chatUsersTable." 
-            WHERE userID = '$userid'";
+            WHERE user_id = '$userid'";
         $userResult = $this->getData($sqlQuery);
         $userAvatar = '';
         foreach ($userResult as $user) {
-            $userAvatar = $user['profileImage'];
+            $userAvatar = $user['profile_image'];
         }   
         return $userAvatar;
     }   
     public function updateUserOnline($userId, $online) {        
         $sqlUserUpdate = "
             UPDATE ".$this->chatUsersTable." 
-            SET online = '".$online."' 
-            WHERE userID = '".$userId."'";          
+            SET status = '".$online."' 
+            WHERE user_id = '".$userId."'";          
         $this->statement = $this->connection->prepare($sqlUserUpdate);
         $this->statement->execute();    
     }
     public function insertChat($reciever_userid, $user_id, $chat_message) {     
         $sqlInsert = "
             INSERT INTO ".$this->chatTable." 
-            (receiverID, senderID, message, status) 
+            (receiver, sender, message_content, message_status) 
             VALUES ('".$reciever_userid."', '".$user_id."', '".$chat_message."', '1')";
             $this->statement = $this->connection->prepare($sqlInsert);
         
@@ -91,23 +91,23 @@
         $toUserAvatar = $this->getUserAvatar($to_user_id);        
         $sqlQuery = "
             SELECT * FROM ".$this->chatTable." 
-            WHERE (senderID = '".$from_user_id."' 
-            AND receiverID = '".$to_user_id."') 
-            OR (senderID = '".$to_user_id."' 
-            AND receiverID = '".$from_user_id."') 
-            ORDER BY sentTime ASC";
+            WHERE (sender = '".$from_user_id."' 
+            AND receiver = '".$to_user_id."') 
+            OR (sender = '".$to_user_id."' 
+            AND receiver = '".$from_user_id."') 
+            ORDER BY sent_time ASC";
         $userChat = $this->getData($sqlQuery);  
         $conversation = '<ul>';
         foreach($userChat as $chat){
             $user_name = '';
-            if($chat["senderID"] == $from_user_id) {
+            if($chat["sender"] == $from_user_id) {
                 $conversation .= '<li class="sent">';
                 $conversation .= '<img width="22px" height="22px" src="'.$fromUserAvatar.'" alt="" />';
             } else {
                 $conversation .= '<li class="replies">';
                 $conversation .= '<img width="22px" height="22px" src="'.$toUserAvatar.'" alt="" />';
             }           
-            $conversation .= '<p>'.$chat["message"].'</p>';         
+            $conversation .= '<p>'.$chat["message_content"].'</p>';         
             $conversation .= '</li>';
         }       
         $conversation .= '</ul>';
@@ -117,9 +117,9 @@
         $userDetails = $this->getUserDetails($to_user_id);
         $toUserAvatar = '';
         foreach ($userDetails as $user) {
-            $toUserAvatar = $user['profileImage'];
-            $userSection = '<img src="'.$user['profileImage'].'" alt="" />
-                <p>'.$user['userName'].'</p>
+            $toUserAvatar = $user['profile_image'];
+            $userSection = '<img src="'.$user['profile_image'].'" alt="" />
+                <p>'.$user['surname'].'</p>
                 <div class="social-media">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                     <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -131,14 +131,14 @@
         // update chat user read status     
         $sqlUpdate = "
             UPDATE ".$this->chatTable." 
-            SET status = '0' 
-            WHERE senderID = '".$to_user_id."' AND receiverID = '".$from_user_id."' AND status = '1'";
+            SET message_status = '0' 
+            WHERE sender = '".$to_user_id."' AND receiver = '".$from_user_id."' AND message_status = '1'";
         mysqli_query($this->dbConnect, $sqlUpdate);     
         // update users current chat session
         $sqlUserUpdate = "
             UPDATE ".$this->chatUsersTable." 
             SET current_session = '".$to_user_id."' 
-            WHERE userID = '".$from_user_id."'";        
+            WHERE user_id = '".$from_user_id."'";        
         $this->statement = $this->connection->prepare($sqlUserUpdate);
         $this->statement->execute();
         $data = array(
@@ -150,7 +150,7 @@
     public function getUnreadMessageCount($senderUserid, $recieverUserid) {
         $sqlQuery = "
             SELECT * FROM ".$this->chatTable."  
-            WHERE senderID = '$senderUserid' AND receiverID = '$recieverUserid' AND status = '1'";
+            WHERE sender = '$senderUserid' AND receiver = '$recieverUserid' AND message_status = '1'";
         $numRows = $this->getNumRows($sqlQuery);
         $output = '';
         if($numRows > 0){
@@ -158,52 +158,53 @@
         }
         return $output;
     }   
-    public function updateTypingStatus($is_type, $loginDetailsId) {     
-        $sqlUpdate = "
-            UPDATE ".$this->chatLoginDetailsTable." 
-            SET is_typing = '".$is_type."' 
-            WHERE id = '".$loginDetailsId."'";
-        $this->statement = $this->connection->prepare($sqlUpdate);
-        $this->statement->execute();
-    }       
-    public function fetchIsTypeStatus($userId){
-        $sqlQuery = "
-        SELECT is_typing FROM ".$this->chatLoginDetailsTable." 
-        WHERE userid = '".$userId."' ORDER BY last_activity DESC LIMIT 1"; 
-        $result =  $this->getData($sqlQuery);
-        $output = '';
-        foreach($result as $row) {
-            if($row["is_typing"] == 'yes'){
-                $output = ' - <small><em>Typing...</em></small>';
-            }
-        }
-        return $output;
-    }       
-    public function insertUserLoginDetails($userId) {       
-        $sqlInsert = "
-            INSERT INTO ".$this->chatLoginDetailsTable."(userid) 
-            VALUES ('".$userId."')";
-        $this->statement = $this->connection->prepare($sqlInsert);
-        $this->statement->execute();
-        $lastInsertId = $this->statement->lastInsertId();
-        return $lastInsertId;       
-    }   
-    public function updateLastActivity($loginDetailsId) {       
-        $sqlUpdate = "
-            UPDATE ".$this->chatLoginDetailsTable." 
-            SET last_activity = now() 
-            WHERE id = '".$loginDetailsId."'";
-        $this->statement = $this->connection->prepare($sqlUpdate);
-        $this->statement->execute();
-    }   
-    public function getUserLastActivity($userId) {
-        $sqlQuery = "
-            SELECT last_activity FROM ".$this->chatLoginDetailsTable." 
-            WHERE userid = '$userId' ORDER BY last_activity DESC LIMIT 1";
-        $result =  $this->getData($sqlQuery);
-        foreach($result as $row) {
-            return $row['last_activity'];
-        }
-    }   
-    }
+    // public function updateTypingStatus($is_type, $loginDetailsId) {     
+    //     $sqlUpdate = "
+    //         UPDATE ".$this->chatLoginDetailsTable." 
+    //         SET is_typing = '".$is_type."' 
+    //         WHERE id = '".$loginDetailsId."'";
+    //     $this->statement = $this->connection->prepare($sqlUpdate);
+    //     $this->statement->execute();
+    // }       
+    // public function fetchIsTypeStatus($userId){
+    //     $sqlQuery = "
+    //     SELECT is_typing FROM ".$this->chatLoginDetailsTable." 
+    //     WHERE userid = '".$userId."' ORDER BY last_activity DESC LIMIT 1"; 
+    //     $result =  $this->getData($sqlQuery);
+    //     $output = '';
+    //     foreach($result as $row) {
+    //         if($row["is_typing"] == 'yes'){
+    //             $output = ' - <small><em>Typing...</em></small>';
+    //         }
+    //     }
+    //     return $output;
+    // }       
+    // public function insertUserLoginDetails($userId) {       
+    //     $sqlInsert = "
+    //         INSERT INTO ".$this->chatLoginDetailsTable."(userid) 
+    //         VALUES ('".$userId."')";
+    //     $this->statement = $this->connection->prepare($sqlInsert);
+    //     $this->statement->execute();
+    //     $lastInsertId = $this->statement->lastInsertId();
+    //     return $lastInsertId;       
+    // }   
+    // public function updateLastActivity($loginDetailsId) {       
+    //     $sqlUpdate = "
+    //         UPDATE ".$this->chatLoginDetailsTable." 
+    //         SET last_activity = now() 
+    //         WHERE id = '".$loginDetailsId."'";
+    //     $this->statement = $this->connection->prepare($sqlUpdate);
+    //     $this->statement->execute();
+    // }   
+    // public function getUserLastActivity($userId) {
+    //     $sqlQuery = "
+    //         SELECT last_activity FROM ".$this->chatLoginDetailsTable." 
+    //         WHERE userid = '$userId' ORDER BY last_activity DESC LIMIT 1";
+    //     $result =  $this->getData($sqlQuery);
+    //     foreach($result as $row) {
+    //         return $row['last_activity'];
+    //     }
+    // }   
+    // }
+}
 ?>

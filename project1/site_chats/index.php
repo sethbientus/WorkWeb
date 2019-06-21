@@ -4,7 +4,7 @@
 ?>
 <title>Live chat</title>
 <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
-<link href="css/style.css" rel="stylesheet" id="bootstrap-css">
+<link href="css/chat.css" rel="stylesheet" id="bootstrap-css">
 <script src="js/chat.js"></script>
 <style>
 	.modal-dialog {
@@ -12,7 +12,7 @@
 	    margin: 30px auto;	
 	}
 </style>
-<div class="container">	
+<div class="container mt-5">	
 	<br>		
 	<?php if(isset($_SESSION['userid']) && $_SESSION['userid']) { ?> 	
 		<div class="chat">	
@@ -20,15 +20,14 @@
 				<div id="sidepanel">
 					<div id="profile">
 						<?php
-							require '../common/classes/profile.php';
-							$chat = new Operations();
+							$chat = new ActivitiesHandler();
 							$loggedUser = $chat->getUserDetails($_SESSION['userid']);
 							echo '<div class="wrap">';
 							$currentSession = '';
 							foreach ($loggedUser as $user) {
-								$currentSession = $user['current_session'];
-								echo '<img id="profile-img" src="'.$user['profileImage'].'" class="online" alt="" />';
-								echo  '<p>'.$user['userName'].'</p>';
+								$currentSession = $user['status'];
+								echo '<img id="profile-img" src="'.$user['profile_image'].'" class="online" alt="" />';
+								echo  '<p>'.$user['surname'].'</p>';
 									echo '<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>';
 									echo '<div id="status-options">';
 									echo '<ul>';

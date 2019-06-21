@@ -1,6 +1,6 @@
 <?php
 session_start();
-$interest = "terrain_domain";
+$interest = "terrain_et_domaine";
 $userid = $_SESSION['userid'];
 require '../common/classes/ActivitiesHandler.php';
 if(isset($_POST['name'])){

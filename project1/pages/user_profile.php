@@ -2,7 +2,7 @@
 	session_start();
 	require '../common/classes/ProfileHandler.php';
 	$details = new ProfileHandler();
-	$data = $details->get_user_pfrofiles( $_SESSION['userid']);
+	$data = $details->get_user_profiles( $_SESSION['userid']);
 	$acitivities = $details->get_activity();
 	$interest = $details->get_unsubscribed_interest( $_SESSION['userid']);
 	$user_activities = $details->get_distinct_user_activities($_SESSION['userid']);
