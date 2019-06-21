@@ -138,7 +138,7 @@
      });
   </script>
   <script >
-    $('#terrains').on('click',function(){
+    $('#terrain_et_domaine').on('click',function(){
       $('#contents').load("http://localhost/WorkWeb/project1/pages/terrain.php");
      });
   </script>
