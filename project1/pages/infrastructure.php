@@ -18,7 +18,7 @@
 						<div>
         					<span><input type="text" class="form-control" id="country" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2"></span>
         					<span>
-        						<button type="button" class="btn btn-primary" id="btnn" return false;><i class="fas fa-search"></i> </button>
+        						<button type="button" class="btn btn-primary" id="btnn"><i class="fas fa-search"></i> </button>
         					</span>
         				</div>
 					</form>
