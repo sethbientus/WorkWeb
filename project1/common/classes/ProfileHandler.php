@@ -14,10 +14,10 @@
                     $this->statement = $this->connection->prepare($sql);
                     $this->statement->bindParam(':gmai',$user_email);
                     $this->statement->bindParam(':pwd',$user_password);
-                    if ($this->statement->execute()){
-                       return $this->statement->fetch(PDO::FETCH_ASSOC);
+                    $this->statement->execute();
+                    if ($this->statement->rowcount() > 0) {
+                         return $this->statement->fetch(PDO::FETCH_ASSOC);
                     }
-                    
                 }
                 public function get_user_profiles($user_id){
                         $sql = "CALL get_user_details('$user_id')";

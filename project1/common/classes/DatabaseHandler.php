@@ -63,7 +63,7 @@
     public function updateUserOnline($userId, $online) {        
         $sqlUserUpdate = "
             UPDATE ".$this->chatUsersTable." 
-            SET status = '".$online."' 
+            SET user_status = '".$online."' 
             WHERE user_id = '".$userId."'";          
         $this->statement = $this->connection->prepare($sqlUserUpdate);
         $this->statement->execute();    

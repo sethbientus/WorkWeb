@@ -1,5 +1,7 @@
 <?php
     require"../common/classes/ProfileHandler.php";
+    require"../common/classes/PasswordHasher.php";
+    $wp_hash = new PasswordHash(8,true);
     $InsertUser = new ProfileHandler();
     $interest;
     if(isset($_POST['submit'])){
@@ -9,6 +11,7 @@
             }
         }
     	$target_path = "../images/userImages/";
+        // $pass = $wp_hash->HashPassword($_POST['password']);
     	$extens = pathinfo($_FILES['image_upload']['name'],PATHINFO_EXTENSION);
     	$new_name = rand().".".$extens;
     	$target_path = $target_path . $new_name;

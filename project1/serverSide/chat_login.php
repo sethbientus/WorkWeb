@@ -4,9 +4,9 @@
     $login = new ProfileHandler();
     if(isset($_POST['login'])){
         $email = $_POST['email'];
-        $password = md5($_POST['password']);
+        $password = $_POST['password'];
         $details = $login->user_login($email,$password);
-        if($details['email'] == $email AND $details['pass_word']==$password){
+        if(is_array($details)){
             $_SESSION['userid'] = $details['user_id'];
             $_SESSION['username'] = $details['surname'];
             // $login->updateUserOnline($record['userID'], 1);

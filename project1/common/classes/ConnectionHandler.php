@@ -17,7 +17,7 @@ class ConnectionHandler extends Server{
     public function dbconnect(){
         if (!($this->connection)){
             try{
-                $this->connection = new PDO("mysql:host=".Server::server.";dbname=".Server::database,Server::user,server::password);
+                $this->connection = new PDO("mysql:host=".Server::server.";dbname=".Server::database,Server::user,server::password,array(PDO::ATTR_PERSISTENT => true));
                 $this->connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             }
             catch (Exception $e) {
