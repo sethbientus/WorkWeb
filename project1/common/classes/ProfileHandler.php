@@ -9,11 +9,10 @@
                                 header("Location: ../pages/profile.php");
                         }
                 }
-                public function user_login($user_email,$user_password){
-                    $sql = "SELECT * FROM tb_tact_users WHERE email = :gmai AND pass_word = :pwd";
+                public function user_login($user_email){
+                    $sql = "SELECT * FROM allusers WHERE email = :gmai";
                     $this->statement = $this->connection->prepare($sql);
                     $this->statement->bindParam(':gmai',$user_email);
-                    $this->statement->bindParam(':pwd',$user_password);
                     $this->statement->execute();
                     if ($this->statement->rowcount() > 0) {
                          return $this->statement->fetch(PDO::FETCH_ASSOC);
