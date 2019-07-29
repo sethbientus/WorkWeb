@@ -1,5 +1,4 @@
 var map;
-var feature;
 function load_map() {
     map = new L.Map('map');
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
@@ -12,7 +11,7 @@ function search_location() {
     var city = document.getElementById("country").value;
     var nzoom = 12;
     var myMarker = L.marker([latitude, longitude], 
-    {title: "Coordinates", alt: "Coordinates", draggable: false}).addTo(map);
+    {title: "Coordinates", alt: "Coordinates", draggable: true}).addTo(map);
     map.setView(new L.LatLng(latitude,longitude), 9);
     myMarker.bindPopup("Location of the activity is in : <br>"
     +city+"<br>At latitude: " + latitude + "<br />At Longitude: " + longitude).openPopup();
