@@ -1,6 +1,6 @@
 <?php
 session_start();
-$interest = "batiment";
+$interest = "batiments";
 $userid = $_SESSION['userid'];
 require '../common/classes/ActivitiesHandler.php';
 if(isset($_POST['name'])){
