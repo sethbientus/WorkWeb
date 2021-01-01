@@ -1,2 +1,2 @@
-# WorkWeb
-Webdesign
+# Projects
+Seth Bientus Projects
